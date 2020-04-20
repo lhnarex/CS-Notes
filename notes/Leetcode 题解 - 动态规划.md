@@ -114,6 +114,14 @@ public int rob(int[] nums) {
 
 [Leetcode](https://leetcode.com/problems/house-robber-ii/description/) / [力扣](https://leetcode-cn.com/problems/house-robber-ii/description/)
 
+解析：此题是 198. 打家劫舍 的拓展版：唯一的区别是此题中的房间是环状排列的（即首尾相接），而 198.198. 题中的房间是单排排列的；而这也是此题的难点。
+
+环状排列意味着第一个房子和最后一个房子中只能选择一个偷窃，因此可以把此环状排列房间问题约化为两个单排排列房间子问题：
+1.在不偷窃第一个房子的情况下（即 nums[1:]），最大金额是 p_1p;
+2.在不偷窃最后一个房子的情况下（即 nums[:n-1]），最大金额是 p_2p。
+
+综合偷窃最大金额： 为以上两种情况的较大值，即 max(p1,p2)。
+
 ```java
 public int rob(int[] nums) {
     if (nums == null || nums.length == 0) {
