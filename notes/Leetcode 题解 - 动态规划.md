@@ -330,8 +330,11 @@ public int minPathSum(int[][] grid) {
 题目描述：统计从矩阵左上角到右下角的路径总数，每次只能向右或者向下移动。
 
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/dc82f0f3-c1d4-4ac8-90ac-d5b32a9bd75a.jpg" width=""> </div><br>
+
+
 ```java
-    /**
+public int uniquePaths(int m, int n) {
+     /**
     * m*n
     *1.定义状态dp[i][j]  表示从(0,0)到(i,j)的所有路径
     *2.状态转移 (题目要求机器人每次只能向下或者向右移动一步)    dp[i][j] = dp[i-1][j] + dp[i][j-1]
@@ -344,24 +347,25 @@ public int minPathSum(int[][] grid) {
     *    变为 i行的 dp[j] = dp[j-1]+dp[j] 其中dp[j-1] 为i行上的，dp[j]为i-1 行上的。
     *   返回值为dp[n-1];  
     **/
-    public int uniquePaths(int m, int n) {
-        if(m <=0 || n <=0){
-            return 0;
-        }
-        int[] dp = new int[n];
-        for(int i = 0; i < m; i++){
-            for(int j = 0; j < n; j++){
-                if(i==0 || j ==0){
-                    dp[j] =1;
-                }else{
-                    dp[j] = dp[j-1]+dp[j];
-                }
-            }
-        }
-        return dp[n-1];
-    }
+  if(m <=0 || n <=0){
+      return 0;
+  }
+  int[] dp = new int[n];
+  for(int i = 0; i < m; i++){
+      for(int j = 0; j < n; j++){
+          if(i==0 || j ==0){
+              dp[j] =1;
+          }else{
+              dp[j] = dp[j-1]+dp[j];
+          }
+      }
+  }
+  return dp[n-1];
+ }
 
 ```
+
+
 ```java
 public int uniquePaths(int m, int n) {
     int[] dp = new int[n];
