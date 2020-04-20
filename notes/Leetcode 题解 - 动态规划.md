@@ -162,7 +162,8 @@ private int rob(int[] nums, int first, int last) {
 
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/da1f96b9-fd4d-44ca-8925-fb14c5733388.png" width="350px"> </div><br>
 
-``java
+
+```java
 public int erroNum(int n){
     if(n<=1){
       return 0;
@@ -177,6 +178,7 @@ public int erroNum(int n){
     return dp[n];
 }
 ```
+
 
 ## 5. 母牛生产
 
