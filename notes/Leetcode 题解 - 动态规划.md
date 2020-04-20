@@ -253,6 +253,50 @@ https://leetcode-cn.com/problems/minimum-path-sum/solution/zui-xiao-lu-jing-he-b
     }
 
 ```
+```java
+ public int minPathSum(int[][] grid) {
+        if(grid == null || grid.length == 0){
+            return 0;
+        }
+        //行
+        int raw = grid.length;
+        //列
+        int col = grid[0].length;
+        //只记录每一行的最小值
+        int[] dp = new int[col];
+        /*
+        *1定义状态：dp[i][j] 表示到达第(i,j)位最小值。
+        *2状态转移：dp[i][j] = min(dp[i-1][j],dp[i][j-1])+grid[i][j]
+        *    即(i,j)的值依赖于其左边和上边的值。故需要边界判断i-1 <0 或者j-1<0 或者 i== 0 && j==0的情况
+        * 3初始化：dp[][] = 0;   
+        * 4.返回值 dp[raw-1][col-1]
+        * 5.状态压缩：int[] dp = new int[col]  记录某一行的各位的最小值
+        *   原dp[i][j] = grid[i][j] +  min(dp[i-1][j],dp[i][j-1])
+            转 i 行 d[j] = grid[i][j] + min(dp[j-1], dp[j])  注意此时 dp[j-1] 记录的是i行的，而dp[j]是i-1行的
+        */
+        for(int i = 0; i < raw; i++){
+            for(int j = 0; j<col; j++){
+                if(i==0 && j==0){
+                    dp[j] = grid[i][j];
+                }else if(i-1 < 0 ){
+                    //处理上边界
+                    dp[j] = dp[j-1] + grid[i][j];
+                }else if( j -1 < 0){
+                    //处理左边界
+                    dp[j] = dp[j] + grid[i][j];
+                }else{
+                    dp[j] = Math.min(dp[j-1],dp[j])+grid[i][j];
+
+
+                }
+
+                
+            }
+        }
+        return dp[col-1];
+
+    }
+```
 
 ```java
 public int minPathSum(int[][] grid) {
