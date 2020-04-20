@@ -122,6 +122,8 @@ public int rob(int[] nums) {
 
 综合偷窃最大金额： 为以上两种情况的较大值，即 max(p1,p2)。
 
+（https://leetcode-cn.com/problems/house-robber-ii/solution/213-da-jia-jie-she-iidong-tai-gui-hua-jie-gou-hua-/）
+
 ```java
 public int rob(int[] nums) {
     if (nums == null || nums.length == 0) {
