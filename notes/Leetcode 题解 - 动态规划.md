@@ -162,6 +162,22 @@ private int rob(int[] nums, int first, int last) {
 
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/da1f96b9-fd4d-44ca-8925-fb14c5733388.png" width="350px"> </div><br>
 
+``java
+public int erroNum(int n){
+    if(n<=1){
+      return 0;
+      }
+    int[] dp = new int[n+1];
+    dp[0]=0;
+    dp[1]=0;
+    dp[2]=1;
+    for(int i=3;i<=n;i++){
+        dp[i]=(i-1)*(dp[i-1]+dp[i-2]);
+    }
+    return dp[n];
+}
+```
+
 ## 5. 母牛生产
 
 [程序员代码面试指南-P181](#)
