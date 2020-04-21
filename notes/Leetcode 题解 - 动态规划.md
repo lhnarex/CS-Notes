@@ -411,6 +411,8 @@ sumRange(0, 5) -> -3
 
 求区间 i \~ j 的和，可以转换为 sum[j + 1] - sum[i]，其中 sum[i] 为 0 \~ i - 1 的和。
 
+https://leetcode-cn.com/problems/range-sum-query-immutable/solution/qu-yu-he-jian-suo-shu-zu-bu-ke-bian-by-leetcode/
+
 ```java
 class NumArray {
 
