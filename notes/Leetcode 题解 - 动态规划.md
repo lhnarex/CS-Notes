@@ -449,6 +449,7 @@ return: 6, for 3 arithmetic slices in A:
 [ 1, 2, 3, 4],
 [2, 3, 4]
 ```
+https://leetcode-cn.com/problems/arithmetic-slices/solution/deng-chai-shu-lie-hua-fen-by-leetcode/
 
 dp[i] 表示以 A[i] 为结尾的等差递增子区间的个数。
 
