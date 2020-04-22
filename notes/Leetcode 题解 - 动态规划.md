@@ -502,6 +502,7 @@ public int numberOfArithmeticSlices(int[] A) {
 题目描述：For example, given n = 2, return 1 (2 = 1 + 1); given n = 10, return 36 (10 = 3 + 3 + 4).
 
 https://leetcode-cn.com/problems/integer-break/solution/bao-li-sou-suo-ji-yi-hua-sou-suo-dong-tai-gui-hua-/
+
 https://leetcode-cn.com/problems/integer-break/solution/shuang-jie-fa-dong-tai-gui-hua-tan-xin-fa-fu-zhao-/
 
 ```java
