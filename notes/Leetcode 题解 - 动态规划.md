@@ -726,6 +726,8 @@ public int numDecodings(String s) {
 
 https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/zui-chang-shang-sheng-zi-xu-lie-by-leetcode-soluti/
 
+
+时间复杂度O(n2)
 ```java
   public int lengthOfLIS(int[] nums) {
         if(nums == null || nums.length == 0){
@@ -750,24 +752,7 @@ https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/zui-cha
 
     }
 ```
-
-
-```java
-public int lengthOfLIS(int[] nums) {
-    int n = nums.length;
-    int[] dp = new int[n];
-    for (int i = 0; i < n; i++) {
-        int max = 1;
-        for (int j = 0; j < i; j++) {
-            if (nums[i] > nums[j]) {
-                max = Math.max(max, dp[j] + 1);
-            }
-        }
-        dp[i] = max;
-    }
-    return Arrays.stream(dp).max().orElse(0);
-}
-```
+时间复杂度(O(nlogn)
 
 ```java
  public int lengthOfLIS(int[] nums) {
@@ -804,6 +789,23 @@ public int lengthOfLIS(int[] nums) {
         }
     }
  ```
+ 
+ ```java
+public int lengthOfLIS(int[] nums) {
+    int n = nums.length;
+    int[] dp = new int[n];
+    for (int i = 0; i < n; i++) {
+        int max = 1;
+        for (int j = 0; j < i; j++) {
+            if (nums[i] > nums[j]) {
+                max = Math.max(max, dp[j] + 1);
+            }
+        }
+        dp[i] = max;
+    }
+    return Arrays.stream(dp).max().orElse(0);
+}
+```
 
 使用 Stream 求最大值会导致运行时间过长，可以改成以下形式：
 
