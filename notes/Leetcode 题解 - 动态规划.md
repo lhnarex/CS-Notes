@@ -526,6 +526,40 @@ public int integerBreak(int n) {
 
 题目描述：For example, given n = 12, return 3 because 12 = 4 + 4 + 4; given n = 13, return 2 because 13 = 4 + 9.
 
+
+```java
+public int numSquares(int n) {
+        if(n < 0){
+            return 0;
+        }
+        int count = 0;
+        int[] dp = new int[n+1];
+        //存完全平方数
+        int sq = (int)Math.sqrt(n);
+        if(Math.pow(sq,2) == n ){
+            return 1;
+        }
+        int[] p = new int[sq];
+       
+        for(int i = 1; i <= n; i++){
+            sq = (int)Math.sqrt(i);
+             if((int)Math.pow(sq,2) == i){
+                 dp[i] = 1;
+                 p[count] = i;
+                 count++;
+             }else{
+                 dp[i]=i;
+                 for(int k = 0; k < count; k++){
+                     dp[i] = Math.min(dp[i],dp[p[k]]+dp[i-p[k]]);
+                 }
+             }
+        }
+        return dp[n];
+
+   }
+
+```
+
 ```java
 public int numSquares(int n) {
     List<Integer> squareList = generateSquareList(n);
