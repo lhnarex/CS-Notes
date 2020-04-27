@@ -882,6 +882,60 @@ Explanation: The longest chain is [1,2] -> [3,4]
 
 题目描述：对于 (a, b) 和 (c, d) ，如果 b < c，则它们可以构成一条链。
 
+https://leetcode-cn.com/problems/maximum-length-of-pair-chain/solution/zui-chang-shu-dui-lian-by-leetcode/
+
+```java
+ public int findLongestChain(int[][] pairs) {
+        if(pairs == null || pairs.length == 0){
+            return 0;
+        }
+        // Arrays.sort(pairs,new Comparator<int[]>(){
+        //     public int compare(int[] o1, int[] o2){
+        //         return o1[0] - o2[0];
+        //     }
+
+        // });
+        Arrays.sort(pairs,(o1,o2)->o1[0]-o2[0]);
+        int len = pairs.length;
+        int[] dp = new int[len];
+        int count = 1;
+        dp[0] = 1;
+        for(int i = 1; i < len; i++){
+            int max = 0;
+            for(int j = 0; j < i; j++){
+                if(pairs[i][0] > pairs[j][1]){
+                    max = Math.max(max,dp[j]);
+                }
+
+            }
+            dp[i] = max+1;
+            count = Math.max(count,dp[i]);
+        }
+        return count;
+
+    }
+
+```
+```java
+public int findLongestChain(int[][] pairs) {
+        if(pairs == null || pairs.length == 0){
+            return 0;
+        }
+        Arrays.sort(pairs,(o1,o2)->o1[1]-o2[1]);
+        int cur = Integer.MIN_VALUE;
+        int ans = 0;
+        for(int[] pair: pairs){
+            if(cur < pair[0]){
+                cur = pair[1];
+                ans++;
+            }
+        }
+        return ans;
+        
+
+    }
+```
+
 ```java
 public int findLongestChain(int[][] pairs) {
     if (pairs == null || pairs.length == 0) {
