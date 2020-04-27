@@ -600,6 +600,84 @@ private List<Integer> generateSquareList(int n) {
 
 ```java
 public int numDecodings(String s) {
+        if( s == null || s.length() == 0 || isZero(s.charAt(0))){
+            return 0;
+        }
+        //状态转移： dp[i] = dp[i-1]+ dp[i-2]
+        //判断 额外判断0的情况
+        // 第一位0时，返回 0 
+        //第一位不会0时， 对于第i位， 当s[i] == 0 时，若s[i-1] ==0 返回 0； 若s[i-1] != 0;(i-1,i)是否可解码，可 dp[i] = dp[i-2], dp[i-1] =dp[i-2]， 不可 ，返回0;
+        // 当是s[i] != 0; 若s[i-1] == 0,dp[i]=dp[i-1],若s[i-1] != 0,判断（i-1,i)是否可解码，可，dp[i] = dp[i-1]+ dp[i-2]，不可dp[i] = dp[i-1]
+        //                        
+        int len = s.length();
+        int dp1 = 0;
+        int dp2 = 0;
+        if(len == 1 ){
+            return 1;
+        }
+        dp1 = 1;
+        dp2 = 1;
+        
+        for(int i = 1; i < len; i++){
+            //i位为0
+            if(isZero(s.charAt(i))){
+                // i-1 位为0
+                if(isZero(s.charAt(i-1))){
+                    return 0;
+                }else{
+                    // (i-1,i)可解码
+                    if(isDecode(s.charAt(i-1),s.charAt(i))){
+                        dp2 = dp1;
+                    }else{
+                        return 0;
+
+                    }
+                    
+                }
+            }else{
+                //i-1 位为0
+                if(isZero(s.charAt(i-1))){
+                    dp1 =dp2;
+                }else{
+                    if(isDecode(s.charAt(i-1),s.charAt(i))){
+                        int cur = dp1 + dp2;
+                        dp1 = dp2;
+                        dp2 = cur;
+                    }else{
+                        dp1 =dp2;
+                    }
+                    
+
+                }
+            }
+
+        }
+        return dp2;
+
+      
+
+    }
+    public boolean isZero(char c){
+        if( c == 48){
+            return true;
+        }
+        return false;
+    }
+    public boolean isDecode(char c1, char c2){
+        int d1 = c1 - 48;
+        int d2 = c2- 48;
+
+        if(d1*10 + d2 <= 26){
+            return true;
+        }
+        return false;
+    } 
+    
+```
+
+
+```java
+public int numDecodings(String s) {
     if (s == null || s.length() == 0) {
         return 0;
     }
