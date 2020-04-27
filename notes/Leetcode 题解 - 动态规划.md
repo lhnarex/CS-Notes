@@ -724,6 +724,34 @@ public int numDecodings(String s) {
 
 [Leetcode](https://leetcode.com/problems/longest-increasing-subsequence/description/) / [力扣](https://leetcode-cn.com/problems/longest-increasing-subsequence/description/)
 
+https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/zui-chang-shang-sheng-zi-xu-lie-by-leetcode-soluti/
+
+```java
+  public int lengthOfLIS(int[] nums) {
+        if(nums == null || nums.length == 0){
+            return 0;
+        }
+        int len = nums.length;
+        int[] dp = new int[len];
+        int max = 1;
+        dp[0] = 1;
+        for(int i = 1; i < len; i++){
+            int maxvalue = 0;
+            for(int j = 0; j < i;j++){
+                if(nums[i] > nums[j]){
+                    maxvalue = Math.max(maxvalue,dp[j]);
+                }
+            }
+           dp[i] = maxvalue+1;
+           max = Math.max(max,dp[i]);
+
+        }
+        return max;
+
+    }
+```
+
+
 ```java
 public int lengthOfLIS(int[] nums) {
     int n = nums.length;
@@ -740,6 +768,42 @@ public int lengthOfLIS(int[] nums) {
     return Arrays.stream(dp).max().orElse(0);
 }
 ```
+
+```java
+ public int lengthOfLIS(int[] nums) {
+        if(nums == null || nums.length == 0){
+            return 0;
+        }
+        int len = nums.length;
+        int[] d = new int[len];
+        int maxlen = 1;
+        d[0] = nums[0];
+        for(int i = 1; i < len; i++){
+            if(nums[i] > d[maxlen-1]){
+                d[maxlen] = nums[i];
+                maxlen++;
+            }else{
+                int k = binary(d,0,maxlen-1,nums[i]);
+                d[k] = nums[i];
+            }
+        }
+        return maxlen;
+
+    }
+    public int binary(int[] d , int left, int right, int val){
+        int mid = (left + right) /2;
+        if(left > right){
+            return left;
+        }
+        if(d[mid] > val){
+            return binary(d,left,mid-1,val);
+        }else if(d[mid] < val){
+           return  binary(d,mid+1,right,val);
+        }else{
+            return mid;
+        }
+    }
+ ```
 
 使用 Stream 求最大值会导致运行时间过长，可以改成以下形式：
 
