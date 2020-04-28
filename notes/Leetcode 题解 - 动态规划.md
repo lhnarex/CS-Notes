@@ -981,6 +981,37 @@ Output: 2
 https://leetcode-cn.com/problems/wiggle-subsequence/solution/bai-dong-xu-lie-by-leetcode/
 
 
+证明最长摆动序列一定可以以原始数组的第一个数作为开始。
+证明如下：若存在某个以第二个数为开始的摆动序列，这个摆动序列里的第二个数比第一个数大，而原始数组的第一个数比第二个数（也就是摆动序列的第一个数）大，
+			则以原始数组的第一个数 作为开始能使摆动序列长度+1；若摆动序列里的第二个数比第一个数大，而原始数组的第一个数比第二个数小，则选取原始数组的          第一个数或者第二个数作为摆动序列的第一个数是等价的，不减少摆动序列长度。
+			对于摆动序列中第二个数比第一个数小的情况对称可证。
+
+```java
+public int wiggleMaxLength(int[] nums) {
+        if(nums.length < 2){
+            return nums.length;
+        }
+        int len = nums.length;
+        //动态规划， up[i]  存的是目前为止最长的以第 i 个元素结尾的上升摆动序列的长度
+        //          down[i] 存的是目前为止最长的以第 i 个元素结尾的下降摆动序列的长度
+        //时间复杂度O(n2),空间复杂度O(n)
+        int[] up = new int[len];
+        int[] down = new int[len];
+        for(int i = 1; i < len; i++){
+            for(int j = 0; j < i; j++){
+                if(nums[i] > nums[j]){
+                    up[i] = Math.max(up[i], 1+down[j]);
+                }else if(nums[i] < nums[j]){
+                    down[i] = Math.max(down[i], 1+up[j]);
+                }
+            }
+        }
+        return 1 + Math.max(up[len-1], down[len-1]);
+
+    }
+```
+
+
 ```java
 public int wiggleMaxLength(int[] nums) {
     if (nums == null || nums.length == 0) {
