@@ -977,6 +977,10 @@ Output: 2
 
 要求：使用 O(N) 时间复杂度求解。
 
+
+https://leetcode-cn.com/problems/wiggle-subsequence/solution/bai-dong-xu-lie-by-leetcode/
+
+
 ```java
 public int wiggleMaxLength(int[] nums) {
     if (nums == null || nums.length == 0) {
