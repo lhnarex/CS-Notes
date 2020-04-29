@@ -1058,6 +1058,32 @@ public int wiggleMaxLength(int[] nums) {
 
 [Leetcode](https://leetcode.com/problems/longest-common-subsequence/) / [力扣](https://leetcode-cn.com/problems/longest-common-subsequence/)
 
+https://leetcode-cn.com/problems/longest-common-subsequence/solution/dong-tai-gui-hua-zhi-zui-chang-gong-gong-zi-xu-lie/
+
+```java
+ public int longestCommonSubsequence(String text1, String text2) {
+        if(text1.length() < 1 || text2.length() < 1){
+            return 0;
+        }
+        //暴力解决，从后向前递归。
+        return help(text1.toCharArray(), text2.toCharArray(),text1.length()-1, text2.length()-1);
+
+
+    }
+    public int help(char[] a, char[] b, int i,int j){
+        if(i < 0 || j < 0){
+            return 0;
+        }
+        if(a[i] == b[j]){
+            return 1 + help(a,b,i-1,j-1);
+            
+        }else{
+            return Math.max(help(a,b,i,j-1),help(a,b,i-1,j));
+        }
+    }
+```
+
+
 ```java
     public int longestCommonSubsequence(String text1, String text2) {
         int n1 = text1.length(), n2 = text2.length();
