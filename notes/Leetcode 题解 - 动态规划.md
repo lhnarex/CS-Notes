@@ -1196,6 +1196,9 @@ Output: true
 Explanation: The array can be partitioned as [1, 5, 5] and [11].
 ```
 
+
+https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/0-1-bei-bao-wen-ti-xiang-jie-zhen-dui-ben-ti-de-yo/
+
 可以看成一个背包大小为 sum/2 的 0-1 背包问题。
 
 ```java
