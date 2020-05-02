@@ -1310,15 +1310,6 @@ int count = 0;
 ```
 
 
-
-
-
-
-
-
-
-
-
 该问题可以转换为 Subset Sum 问题，从而使用 0-1 背包的方法来求解。
 
 可以将这组数看成两部分，P 和 N，其中 P 使用正号，N 使用负号，有以下推导：
@@ -1386,7 +1377,53 @@ Output: 4
 Explanation: There are totally 4 strings can be formed by the using of 5 0s and 3 1s, which are "10","0001","1","0"
 ```
 
+https://leetcode-cn.com/problems/ones-and-zeroes/solution/yi-he-ling-by-leetcode/
+
 这是一个多维费用的 0-1 背包问题，有两个背包大小，0 的数量和 1 的数量。
+
+```java
+public int findMaxForm(String[] strs, int m, int n) {
+        if(strs.length == 0 || m < 0 || n < 0){
+            return 0;
+        }
+        int len = strs.length;
+        //为了避免初始化，故申请len+1  
+        int [][][] dp = new int[len+1][m+1][n+1];
+     
+        for(int k = 1; k <=len; k++){
+            int[] count = calculate(strs[k-1].toCharArray());
+            //0
+            for(int i = 0; i <= m; i++){
+                //1
+                for(int j = 0; j <= n; j++){
+                    if(count[0] <= i && count[1] <= j){
+                        dp[k][i][j] = Math.max(dp[k-1][i][j],dp[k-1][i-count[0]][j-count[1]] +1);
+
+                    }else{
+                        dp[k][i][j] = dp[k-1][i][j];
+                    }
+
+                }
+            }
+
+        }
+        return dp[len][m][n];
+    }
+    //return number of 0 ,1
+    public int[]  calculate(char[] ch){
+        int[] res = new int[2];
+        for(int i = 0; i < ch.length; i++){
+            if(ch[i] == '0'){
+                res[0]++;
+            }else{
+                res[1]++;
+            }
+        }
+        return res;
+    }
+```
+
+
 
 ```java
 public int findMaxForm(String[] strs, int m, int n) {
