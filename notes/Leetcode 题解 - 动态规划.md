@@ -1247,6 +1247,78 @@ Explanation:
 There are 5 ways to assign symbols to make the sum of nums be target 3.
 ```
 
+https://leetcode-cn.com/problems/target-sum/solution/mu-biao-he-by-leetcode/
+
+```java
+int count = 0;
+    public int findTargetSumWays(int[] nums, int S) {
+        if(nums.length == 0){
+            return 0;
+        }
+        int len = nums.length;
+        calculate(nums,0,0,S);
+        return count;
+
+    }
+    public void calculate(int[] nums, int i, int sum, int target){
+        if(i == nums.length){
+            if(sum == target){
+                count++;
+            }
+            return;
+        }
+        calculate(nums,i+1,sum+nums[i],target);
+        calculate(nums,i+1,sum-nums[i],target);
+    }
+```
+
+```java
+ public int findTargetSumWays(int[] nums, int S) {
+        /*
+        动态规划(0-1背包)求解：
+            dp[i][j] 表示用数组中的前 i 个元素，组成和为 j 的方案数。考虑第 i 个数 nums[i]，它可以被添加 + 或 -，因此状态转移方程如下：dp[i][j] = dp[i-1][j-nums[i]](对应+)) + dp[i-1][j+nums[i]](对应减)
+            sum:表示nums的和，则j的取值为[-sum,sum], 故dp的大小为 nums.length *(sum*2+1)
+            若采用dp[i][j] = dp[i-1][j-nums[i]]+ dp[i-1][j+nums[i]]这个状态方程，还需要判断j-nums, j+nums 越界情况。
+            故：采用dp[i-1][j] > 0 时，求dp[i][j + nums[i]] += dp[i - 1][j], dp[i][j - nums[i]] += dp[i - 1][j]
+        */
+        if(nums.length == 0){
+            return 0;
+        }
+        int len = nums.length;
+        int sum = 0;
+        for(int num:nums){
+            sum +=num;
+        }
+        if(S > sum || S < -sum){
+            return 0;
+        }
+        int[][] dp = new int[len][sum*2+1];
+        //注意nums[0] = 0; -0=+0 
+        dp[0][-nums[0] + sum] = 1;
+        dp[0][nums[0]+sum] += 1;
+        for(int i = 1; i < len; i++){
+            for(int j = -sum; j <= sum; j++){
+                if(dp[i-1][j+sum] > 0){
+                    dp[i][j+nums[i]+sum] += dp[i-1][j+sum];
+                    dp[i][j-nums[i]+sum] += dp[i-1][j+sum];
+                }
+            }
+        }
+        return dp[len-1][S+sum];
+
+    }
+```
+
+
+
+
+
+
+
+
+
+
+
 该问题可以转换为 Subset Sum 问题，从而使用 0-1 背包的方法来求解。
 
 可以将这组数看成两部分，P 和 N，其中 P 使用正号，N 使用负号，有以下推导：
