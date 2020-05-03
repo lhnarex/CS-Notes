@@ -1574,6 +1574,8 @@ dict = ["leet", "code"].
 Return true because "leetcode" can be segmented as "leet code".
 ```
 
+https://leetcode-cn.com/problems/word-break/solution/dan-ci-chai-fen-by-leetcode/
+
 dict 中的单词没有使用次数的限制，因此这是一个完全背包问题。
 
 该问题涉及到字典中单词的使用顺序，也就是说物品必须按一定顺序放入背包中，例如下面的 dict 就不够组成字符串 "leetcode"：
