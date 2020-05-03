@@ -1472,6 +1472,12 @@ return -1.
 - 物品大小：面额
 - 物品价值：数量
 
+
+https://leetcode-cn.com/problems/coin-change/solution/dong-tai-gui-hua-tao-lu-xiang-jie-by-wei-lai-bu-ke/
+
+https://leetcode-cn.com/problems/coin-change/solution/322-ling-qian-dui-huan-by-leetcode-solution/
+
+
 因为硬币可以重复使用，因此这是一个完全背包问题。完全背包只需要将 0-1 背包的逆序遍历 dp 数组改为正序遍历即可。
 
 ```java
@@ -1508,6 +1514,35 @@ Explanation: there are four ways to make up the amount:
 5=2+1+1+1
 5=1+1+1+1+1
 ```
+https://leetcode-cn.com/problems/coin-change-2/solution/ling-qian-dui-huan-ii-by-leetcode/
+
+```java
+public int change(int amount, int[] coins) {
+        //动态规划 组合问题  0, []  为1 
+        if(amount < 0 ){
+            return 0;
+        }
+        int len = coins.length;
+        int[][] dp = new int[len+1][amount+1];
+        dp[0][0] = 1;
+        for(int i = 0; i < len; i++){
+            for(int j = 0; j <= amount; j++){
+                if(coins[i] <= j){
+                    dp[i+1][j] = dp[i][j] + dp[i+1][j-coins[i]];
+
+                }else{
+                     dp[i+1][j] = dp[i][j];
+                }
+               
+            }
+        }
+        return dp[len][amount];
+
+
+    }
+```
+
+
 
 完全背包问题，使用 dp 记录可达成目标的组合数目。
 
