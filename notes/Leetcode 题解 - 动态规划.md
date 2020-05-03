@@ -945,7 +945,37 @@ Explanation: there are four ways to make up the amount:
 5=1+1+1+1+1
 ```
 
+https://leetcode-cn.com/problems/coin-change-2/solution/ling-qian-dui-huan-ii-by-leetcode/
+
+
+```java
+public int change(int amount, int[] coins) {
+        //动态规划  组合问题  0, []  为1 
+        if(amount < 0 ){
+            return 0;
+        }
+        int len = coins.length;
+        int[][] dp = new int[len+1][amount+1];
+        dp[0][0] = 1;
+        for(int i = 0; i < len; i++){
+            for(int j = 0; j <= amount; j++){
+                if(coins[i] <= j){
+                    dp[i+1][j] = dp[i][j] + dp[i+1][j-coins[i]];
+
+                }else{
+                     dp[i+1][j] = dp[i][j];
+                }
+               
+            }
+        }
+        return dp[len][amount];
+
+
+    }
+```
+
 完全背包问题，使用 dp 记录可达成目标的组合数目。
+
 
 ```java
 public int change(int amount, int[] coins) {
