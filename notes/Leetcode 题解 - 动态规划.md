@@ -1627,6 +1627,27 @@ Note that different sequences are counted as different combinations.
 Therefore the output is 7.
 ```
 
+https://leetcode-cn.com/problems/combination-sum-iv/solution/xi-wang-yong-yi-chong-gui-lu-gao-ding-bei-bao-wen-/
+
+```java
+ public int combinationSum4(int[] nums, int target) {
+        if(target < 0){
+            return 0;
+        }
+        int[] dp = new int[target+1];
+        dp[0] = 1;
+        for(int i = 1; i <=target;i++){
+            for(int j = 0; j < nums.length;j++){
+                if(nums[j] <= i){
+                    dp[i] += dp[i-nums[j]];
+                }
+            }
+        }
+        return dp[target];
+
+    }
+```
+
 涉及顺序的完全背包。
 
 ```java
