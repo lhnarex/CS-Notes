@@ -1627,6 +1627,8 @@ Note that different sequences are counted as different combinations.
 Therefore the output is 7.
 ```
 
+这个是对0-1和完全背包问题的总结：
+
 https://leetcode-cn.com/problems/combination-sum-iv/solution/xi-wang-yong-yi-chong-gui-lu-gao-ding-bei-bao-wen-/
 
 ```java
@@ -1668,6 +1670,9 @@ public int combinationSum4(int[] nums, int target) {
 ```
 
 # 股票交易
+所有股票问题的套用公式：
+
+https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/solution/yi-ge-fang-fa-tuan-mie-6-dao-gu-piao-wen-ti-by-lab/
 
 ## 1. 需要冷却期的股票交易
 
