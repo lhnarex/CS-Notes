@@ -1674,6 +1674,9 @@ public int combinationSum4(int[] nums, int target) {
 
 https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/solution/yi-ge-fang-fa-tuan-mie-6-dao-gu-piao-wen-ti-by-lab/
 
+122.的另一种解法
+https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/solution/best-time-to-buy-and-sell-stock-ii-zhuan-hua-fa-ji/
+
 ## 1. 需要冷却期的股票交易
 
 309\. Best Time to Buy and Sell Stock with Cooldown(Medium)
