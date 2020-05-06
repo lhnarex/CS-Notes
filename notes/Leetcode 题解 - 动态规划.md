@@ -1871,6 +1871,11 @@ exection -> execution (insert 'u')
 
 题目描述：修改一个字符串成为另一个字符串，使得修改次数最少。一次修改操作包括：插入一个字符、删除一个字符、替换一个字符。
 
+看解析视频：
+https://leetcode-cn.com/problems/edit-distance/solution/bian-ji-ju-chi-by-leetcode-solution/
+
+
+
 ```java
 public int minDistance(String word1, String word2) {
     if (word1 == null || word2 == null) {
