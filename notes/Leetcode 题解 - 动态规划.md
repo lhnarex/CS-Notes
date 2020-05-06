@@ -1821,6 +1821,8 @@ Output: 2
 Explanation: You need one step to make "sea" to "ea" and another step to make "eat" to "ea".
 ```
 
+https://leetcode-cn.com/problems/delete-operation-for-two-strings/solution/liang-ge-zi-fu-chuan-de-shan-chu-cao-zuo-by-leetco/
+
 可以转换为求两个字符串的最长公共子序列问题。
 
 ```java
