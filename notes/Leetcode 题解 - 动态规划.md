@@ -1920,6 +1920,9 @@ In step 2, we use Paste operation to get 'AA'.
 In step 3, we use Paste operation to get 'AAA'.
 ```
 
+https://leetcode-cn.com/problems/2-keys-keyboard/solution/zhi-you-liang-ge-jian-de-jian-pan-by-leetcode/
+
+
 ```java
 public int minSteps(int n) {
     if (n == 1) return 0;
