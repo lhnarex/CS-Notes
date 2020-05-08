@@ -83,6 +83,9 @@ Explanation: You don't need to remove any of the intervals since they're already
 
 按区间的结尾进行排序，每次选择结尾最小，并且和前一个区间不重叠的区间。
 
+https://leetcode-cn.com/problems/non-overlapping-intervals/solution/wu-zhong-die-qu-jian-by-leetcode/
+
+
 ```java
 public int eraseOverlapIntervals(int[][] intervals) {
     if (intervals.length == 0) {
