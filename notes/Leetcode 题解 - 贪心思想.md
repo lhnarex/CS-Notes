@@ -339,6 +339,8 @@ For example, given the array [-2,1,-3,4,-1,2,1,-5,4],
 the contiguous subarray [4,-1,2,1] has the largest sum = 6.
 ```
 
+https://leetcode-cn.com/problems/maximum-subarray/solution/zui-da-zi-xu-he-by-leetcode-solution/
+
 ```java
 public int maxSubArray(int[] nums) {
     if (nums == null || nums.length == 0) {
