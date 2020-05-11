@@ -277,6 +277,8 @@ s = "abc", t = "ahbgdc"
 Return true.
 ```
 
+https://leetcode-cn.com/problems/is-subsequence/solution/javati-jie-he-hou-xu-tiao-zhan-by-lil-q/
+
 ```java
 public boolean isSubsequence(String s, String t) {
     int index = -1;
