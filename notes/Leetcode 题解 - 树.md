@@ -72,6 +72,28 @@ public int maxDepth(TreeNode root) {
 平衡树左右子树高度差都小于等于 1
 
 ```java
+public boolean isBalanced(TreeNode root) {
+        return getheight(root) != -1;
+
+    }
+    public int getheight(TreeNode root){
+        if(root == null){
+            return 0;
+        }
+        int left = getheight(root.left);
+        if(left == -1){
+            return -1;
+        }
+        int right = getheight(root.right);
+        if(right == -1){
+            return -1;
+        }
+        return Math.abs(left-right) < 2? Math.max(left,right)+1:-1;
+    }
+```
+
+
+```java
 private boolean result = true;
 
 public boolean isBalanced(TreeNode root) {
