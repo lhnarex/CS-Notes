@@ -252,6 +252,8 @@ Return 3. The paths that sum to 8 are:
 
 路径不一定以 root 开头，也不一定以 leaf 结尾，但是必须连续。
 
+https://leetcode-cn.com/problems/path-sum-iii/solution/qian-zhui-he-di-gui-hui-su-by-shi-huo-de-xia-tian/
+
 ```java
 public int pathSum(TreeNode root, int sum) {
     if (root == null) return 0;
