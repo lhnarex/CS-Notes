@@ -309,6 +309,8 @@ Given tree t:
 Return false.
 ```
 
+https://leetcode-cn.com/problems/subtree-of-another-tree/solution/ling-yi-ge-shu-de-zi-shu-by-leetcode-solution/
+
 ```java
 public boolean isSubtree(TreeNode s, TreeNode t) {
     if (s == null) return false;
