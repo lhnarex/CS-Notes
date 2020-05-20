@@ -549,6 +549,28 @@ Output:
 ```
 
 ```java
+   int mdepth = Integer.MIN_VALUE;
+    int  res;
+    public int findBottomLeftValue(TreeNode root) {
+        dfs(root, 0);
+        return res;
+
+    }
+    public void dfs(TreeNode node, int depth){
+        if(node != null){
+            if(node.left == null && node.right == null){
+                if(mdepth < depth){
+                    mdepth = depth;
+                    res = node.val;
+                }
+            }
+            dfs(node.left, depth +1);
+            dfs(node.right, depth +1);
+        }
+    }
+```
+
+```java
 public int findBottomLeftValue(TreeNode root) {
     Queue<TreeNode> queue = new LinkedList<>();
     queue.add(root);
