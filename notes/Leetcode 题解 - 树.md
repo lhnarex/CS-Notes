@@ -449,6 +449,8 @@ private int dfs(TreeNode root){
      3   1
 Maximum amount of money the thief can rob = 3 + 3 + 1 = 7.
 ```
+https://leetcode-cn.com/problems/house-robber-iii/solution/san-chong-fang-fa-jie-jue-shu-xing-dong-tai-gui-hu/
+
 
 ```java
 public int rob(TreeNode root) {
