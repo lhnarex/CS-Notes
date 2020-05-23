@@ -940,6 +940,7 @@ One possible answer is: [0,-3,9,-10,null,5], which represents the following heig
    /   /
  -10  5
 ```
+https://leetcode-cn.com/problems/convert-sorted-list-to-binary-search-tree/solution/you-xu-lian-biao-zhuan-huan-er-cha-sou-suo-shu-by-/
 
 ```java
 public TreeNode sortedListToBST(ListNode head) {
@@ -989,6 +990,8 @@ Output: True
 使用中序遍历得到有序数组之后，再利用双指针对数组进行查找。
 
 应该注意到，这一题不能用分别在左右子树两部分来处理这种思想，因为两个待求的节点可能分别在左右子树中。
+
+https://leetcode-cn.com/problems/two-sum-iv-input-is-a-bst/solution/liang-shu-zhi-he-iv-by-leetcode/
 
 ```java
 public boolean findTarget(TreeNode root, int k) {
