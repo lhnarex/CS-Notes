@@ -1193,7 +1193,7 @@ Input: sum("ap"), Output: 3
 Input: insert("app", 2), Output: Null
 Input: sum("ap"), Output: 5
 ```
-
+https://leetcode-cn.com/problems/map-sum-pairs/solution/jian-zhi-ying-she-by-leetcode/
 
 ```java
 class MapSum {
