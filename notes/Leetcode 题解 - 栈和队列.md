@@ -60,6 +60,8 @@ class MyQueue {
 
 在将一个元素 x 插入队列时，为了维护原来的后进先出顺序，需要让 x 插入队列首部。而队列的默认插入顺序是队列尾部，因此在将 x 插入队列尾部之后，需要让除了 x 之外的所有元素出队列，再入队列。
 
+https://leetcode-cn.com/problems/implement-stack-using-queues/solution/yong-dui-lie-shi-xian-zhan-by-leetcode/
+
 ```java
 class MyStack {
 
@@ -96,6 +98,8 @@ class MyStack {
 155\. Min Stack (Easy)
 
 [Leetcode](https://leetcode.com/problems/min-stack/description/) / [力扣](https://leetcode-cn.com/problems/min-stack/description/)
+
+https://leetcode-cn.com/problems/min-stack/solution/zui-xiao-zhan-by-leetcode-solution/
 
 ```java
 class MinStack {
@@ -182,6 +186,8 @@ Output: [1, 1, 4, 2, 1, 1, 0, 0]
 
 在遍历数组时用栈把数组中的数存起来，如果当前遍历的数比栈顶元素来的大，说明栈顶元素的下一个比它大的数就是当前元素。
 
+https://leetcode-cn.com/problems/daily-temperatures/solution/mei-ri-wen-du-by-leetcode/
+
 ```java
 public int[] dailyTemperatures(int[] temperatures) {
     int n = temperatures.length;
@@ -213,6 +219,8 @@ The second 1's next greater number needs to search circularly, which is also 2.
 ```
 
 与 739. Daily Temperatures (Medium) 不同的是，数组是循环数组，并且最后要求的不是距离而是下一个元素。
+
+https://leetcode-cn.com/problems/next-greater-element-ii/solution/xia-yi-ge-geng-da-yuan-su-ii-by-leetcode/
 
 ```java
 public int[] nextGreaterElements(int[] nums) {
