@@ -99,6 +99,8 @@ The longest consecutive elements sequence is [1, 2, 3, 4]. Return its length: 4.
 
 要求以 O(N) 的时间复杂度求解。
 
+https://leetcode-cn.com/problems/longest-consecutive-sequence/solution/zui-chang-lian-xu-xu-lie-by-leetcode/
+
 ```java
 public int longestConsecutive(int[] nums) {
     Map<Integer, Integer> countForNum = new HashMap<>();
