@@ -125,6 +125,7 @@ Given "egg", "add", return true.
 Given "foo", "bar", return false.
 Given "paper", "title", return true.
 ```
+https://leetcode-cn.com/problems/isomorphic-strings/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by-42/
 
 记录一个字符上次出现的位置，如果两个字符串中的字符上次出现的位置一样，那么就属于同构。
 
