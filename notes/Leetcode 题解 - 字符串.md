@@ -156,7 +156,7 @@ Input: "aaa"
 Output: 6
 Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
 ```
-
+https://leetcode-cn.com/problems/palindromic-substrings/solution/hui-wen-zi-chuan-by-leetcode/
 从字符串的某一位开始，尝试着去扩展子字符串。
 
 ```java
